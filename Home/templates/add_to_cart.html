@@ -1,0 +1,33 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src = '{% static "javascriptt/jquery-3.5.1.js" %}'></script>
+</head>
+<body>
+<div> CUSTOMER'S NAME:{{request.user}} </div>
+<br>
+<div>
+{% for i in addtocart %}
+   <tr>
+       <th scope="row">table </th>
+         <td colspan="10">ORDER </td>
+         <td> ORDER_DATE</td>
+         <td>ORDER_QUANTITY </td>
+         <td> ORDER_TOTAL PRICE:</td>
+   </tr>
+    <div>ORDER: {{i.item}}</div>
+    <div>ORDER_DATE:{{i.created}}</div>
+    <div>ORDER_QUANTITY:{{i.quantity}}</div>
+     <div>ORDER_TOTAL PRICE:N{{i.realprice}}</div>
+    <div>DISCOUNT PRICE:N{{i.saved_price}}</div>
+    <br>
+
+{% endfor %}
+   <div> TOTAL PRICE:N{{t}}</div>
+</div>
+<span> </span>
+</body>
+</html>

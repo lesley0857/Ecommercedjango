@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+{% load static %}
+<img lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+     <script src = '{% static "jquery-3.5.1.js" %}'></script>
+</head>
+<body>
+{{t}}
+<span>
+  {{request.user.customer.plans}}
+    <a href="{{request.user.customer.content.url}}" download="{{request.user.customer.content.url}}">download</a>
+</span>
+<span>We currently have : {{h}}  Customers</span><br>
+<span>
+    your Downlines are: {{v}}<br>
+</span>
+your referral is :{{request.user.customer.upline}}<br>
+
+ customers page
+{{request.user.customer}}
+<span> <a href=" {% url 'Home:logout' %}"> logout</a></span>
+<span> <a href=" {% url 'Home:acctsetting' %}"> account settings</a></span>
+<span> <a href=" {{g.about_get_absolute_url}}"> about</a></span>
+<a href = "{% url 'Home:customer' %}"> reload </a>
+ <div>{% if request.user.get_full_name %}</div>
+   User is : {{request.user.get_full_name }}<br>
+   {%endif%}
+
+
+<a href="{{request.user.customer.get_ref_link}}">{{request.user.customer.get_ref_link}} </a>
+
+ <div>{{g}}</div><hr>
+
+<img  alt="pic" src="{{request.user.customer.profile_pic.url}}" height="100">
+<a href="https://www.facebook.com/sharer/sharer.php?u={{request.user.customer.get_absolute_url}}">Facebook</a>
+ {% for i in order %}
+<div> {{i.products}}
+      since {{ i.created|timesince }} </div>
+     {% endfor %}
+account created on   {{request.user.customer.created}}
+
+</body>
+</html>

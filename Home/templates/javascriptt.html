@@ -1,0 +1,240 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src = '{% static "javascriptt/jquery-3.5.1.js" %}'></script>
+    <link rel="stylesheet" href="{% static 'css/javascriptt.css' %}">
+    <link rel="stylesheet" href="{% static 'jquery ui/jquery-ui.css' %}">
+    <link rel="stylesheet" href="{% static 'jquery ui/jquery-ui.structure.css' %}">
+    <link rel="stylesheet" href="{% static 'jquery ui/jquery-ui.theme.css' %}">
+    <title>Title</title>
+  <script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
+<link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
+</head>
+<body>
+
+<div id='map' style='width: 400px; height: 300px;'></div>
+<div id='map' style='width: 400px; height: 300px;'></div>
+<script>
+mapboxgl.accessToken = '{{mapbox_access_token}}';
+var map = new mapboxgl.Map({
+container: 'map',
+style: 'mapbox://styles/mapbox/streets-v11', // stylesheet location
+center: [-74.5, 40], // starting position [lng, lat]
+zoom: 9 // starting zoom
+});
+</script>
+   
+<script type="text/javascript">
+
+var num =10;
+    switch(num)
+    {
+        case 20:
+            document.write("correct")
+            break;
+        case 10:
+            document.write('ten');
+            break;
+        default:
+            document.write('wrong')};
+document.write(' ')
+    var j = 9;
+    if(num==10)
+        {
+        document.write("num=10")
+        }
+    else if(num==10 && j==9)
+        {
+        document.write("testing and operator ")
+        }
+
+/*function fn1()
+{
+    var ui = []
+    var lo = document.getElementById('form_input');
+    ui.push(lo.value);
+    document.write(ui);
+    document.write(lo.value)
+    <input type="submit" id="form_input" value="1.08" onclick="fn1()">
+} */
+/*
+function fn1()
+{
+    var jo = document.getElementById('rd1');
+    var ho = document.getElementById('rd2');
+    if (rd1.checked == true)
+        document.write(jo.value);
+    else if(rd2.checked == true)
+        document.write(ho.value);
+    else
+        document.write('nothing selected'); }
+
+        <input type="radio" id='rd1' name='no1' value="volume" > volume </input>
+<input type="radio" id='rd2'  name='no1' value="height"> height </input>
+<input type='submit' onclick='fn1()'></input> */
+    
+/* function fn2(){
+    var ik = document.getElementById('selectbox');
+    document.write(ik.options[ik.selectedIndex].value);
+}
+<select id='selectbox'>
+<option value='milk'> milk </option>
+<option value='sugar'> sugar </option>
+<option value='wine'> wine</option>
+</select>
+<input type='submit' onclick='fn2()'></input>  */
+/*
+function fn2()
+{
+      document.getElementById('firstimg').src = "{% static 'images/Penguins.jpg' %} "
+
+}
+function fn1()
+{
+     document.getElementById('firstimg').src = "{% static 'images/Koala.jpg' %}"
+}
+<img src="{% static 'images/Koala.jpg' %}" id="firstimg" onmouseover="fn2()" onmouseout="fn1()" width="100">
+*/
+/*var opacityvalue = 0;
+var intervalId = 0;
+function hide(){
+    var img = document.getElementById('first');
+    var  opacityvalue = Number(window.getComputedStyle(img).getPropertyValue('opacity'));
+   if(opacityvalue>0){
+       opacityvalue = opacityvalue-0.1;
+       img.style.opacity=opacityvalue;
+       }
+    else
+    {
+        clearInterval(intervalId);
+    }
+}
+
+function fn1()
+{
+    intervalId = setInterval(hide,100);
+}
+
+function showfunction(){
+    var img = document.getElementById('first');
+    var  opacityvalue = Number(window.getComputedStyle(img).getPropertyValue('opacity'));
+   if(opacityvalue<1){
+       opacityvalue = opacityvalue+0.1;
+       img.style.opacity=opacityvalue; 
+       }
+    else
+    {
+        clearInterval(intervalId);
+    }
+}
+function fn2()
+{
+    intervalId = setInterval(showfunction,100);
+}*/
+/*
+function fn1()
+{
+   $('#ko').fadeToggle(2000);
+}
+<img src = "{%static 'images/Koala.jpg' %}" width='150'  id='first'>
+<button id='btn1' onclick='fn1()' >fadein</button>
+<button id='btn1' onclick='fn2()' >fadeout</button>
+<h2 id='ko'>boldinggg</h2>
+
+*/
+/*
+  $("div").hover(fn1,fn2);
+  $("div").mouseenter(fn1);
+    $("div").mouseleave(fn2);
+
+    function fn1(){
+        $('div').slideUp("slow");}
+
+    function fn2(){
+        $('div').slideDown("slow");}
+
+$(document).ready(function (){
+
+  $("#second").click(function(){
+    $("#second").animate({left:"150px",
+                           opacity:'1',
+                         width:'80',
+                        height:'80'})
+  })
+
+}); */
+/*
+function fn1(){
+// javascript:location.reload(true)
+//window.location='{% url 'Home:signup'%}';
+
+ var k = confirm('do u want?');
+if(k == true){
+document.write('lolzz');
+return true;}
+else{
+document.write('lmao');
+return false;}
+}
+ */  </script>
+
+<script>
+/*
+$(document).ready(function fn1(){
+  $('#btn').click(function(){
+       $("#second").attr('class','lclass')
+       alert($('#second').attr("class"))
+    });
+})
+*/
+
+
+</script>
+
+
+
+
+
+      <input type="button"  id="btn">
+
+<div id = "first"class='firstclass'>
+    <input id="inputid" type="text" placeholder="choose a date: dd/mm/yyyy">
+    <p>css trial 1</p>
+    <p>css trial 90</p>
+
+<label> enter product name </label>
+<input type="text" id="productss">
+</div>
+<div id = "second" class='secondclass' >css trial 2 </div><br>
+
+
+</body>
+  <script src = '{% static "javascriptt/jquery-3.5.1.js" %}'></script>
+  <script src = '{% static "jquery ui/jquery-ui.js" %}'></script>
+
+<script>
+   $("#inputid").datepicker({
+       numberOfMonths:1,
+       changeYear:true,
+       changeMonth:true,
+       showWeek:true,
+       showOtherMonths:true,
+       minDate: new Date(2010,0,1),
+       maxDate: new Date(2021,11,31)
+
+   });
+</script>
+
+
+<script>
+var k = ["plough",'kings']
+$('#productss').autocomplete({
+  source:k
+});
+
+</script>
+
+
+</html>

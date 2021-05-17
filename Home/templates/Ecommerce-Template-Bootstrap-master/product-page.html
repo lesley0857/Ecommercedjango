@@ -1,0 +1,84 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <script src = '{% static "javascriptt/jquery-3.5.1.js" %}'></script>
+
+    <link rel="stylesheet" href="{% static 'jquery ui/jquery-ui.css' %}">
+    <link rel="stylesheet" href="{% static 'jquery ui/jquery-ui.structure.css' %}">
+    <link rel="stylesheet" href="{% static 'jquery ui/jquery-ui.theme.css' %}">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>ecommerce products </title>
+   <script src = '{% static "javascriptt/jquery-3.5.1.js" %}'></script>
+  <script src = '{% static "jquery ui/jquery-ui.js" %}'></script>
+  <script src="https://js.stripe.com/v3/"></script>
+</head>
+
+<body>
+
+
+{% if messages %}
+  {% for message in messages %}
+    {{ message }}
+  {% endfor %}
+{% endif %}
+<form method="GET" action="">
+    <input type="text" name="q" value="{{request.GET.q}}" placeholder="search for products here"/>
+    <input type="submit">
+</form>
+
+
+{% for list in productlist %}
+  {% if list.discount %}
+     <div>discount:<del>${{list.discount}}</del></div>
+     <div> price:${{list.price}}</div>
+  {% else %}
+
+    <div> price:${{list.price}}</div>
+  {% endif %}
+
+{%if request.GET.q%}{{ list }}
+<a href="{{list.get_absolute_url}}">{{list.title}}details</a>
+
+<img src = "{{list.profile_pic.url}}" width="100"><br>
+{% else %}{{ list }}
+<a href="{{list.get_absolute_url}}">{{list.title}}details</a>
+{{list.realprice}}
+<img src = "{{list.profile_pic.url}}" width="100"><br>
+{%endif%}
+<div>
+    <a href="{{list.get_addtocart_url}}">ADD TO CART</a><br>
+    <a href="{{list.get_removecart_url}}">REMOVE FROM CART</a><br>
+     <a href="{{list.get_reducecart_url}}"><b>---</b></a>
+</div>
+{% endfor %}
+
+
+ <a href="{% url 'Home:addtocartt' %}">CHECK CART </a>
+
+
+{% if is_paginated %}
+<ul>
+  {% if page_obj.has_previous %}
+    <li>
+       <a href="page=1">page 1</a>
+       <a href="page={{page_obj.previous_page_number}}">previous</a>
+    </li>
+  {% endif %}
+    {{page_obj.number}} of {{page_obj.paginator.num_pages}}
+  {% if page_obj.has_next %}
+     <li>
+      <a href="page={{ page_obj.next_page_number }}">next</a>
+      <a href="page={{page_obj.paginator.num_pages}}">last</a>
+     </li>
+    {% endif %}
+</ul>
+{% endif %}
+
+ <button class="btn btn-primary btn-lg btn-block" type="submit"><a href="{% url 'Home:checkout' %}">CHECKOUT</a></button>
+</body>
+
+</html>

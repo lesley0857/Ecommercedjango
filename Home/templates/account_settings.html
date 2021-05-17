@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+     <script src = '{% static "jquery-3.5.1.js" %}'></script>
+
+
+</head>
+<body>
+
+{{request.user.customer}}
+
+<h3>preview</h3>
+<div >
+<h3 id="preview_content"></h3>
+</div>
+
+<!--
+<script>
+
+    function fn1(){
+     var y = document.getElementById("id_name").value;
+     var t = document.getElementById('id_phone').value;
+     var w = document.getElementById('id_email').value;
+     var regx1 = /^([\w]+)@([\w]{2,8}).([a-z]{2,8})(.[a-z]{2,8})?$/;
+     var regx2 = /^[2][3][4]\d{10}$/;
+     var regx = /a[j-z]00/i; 
+     if(regx2.test(t) && regx.test(y) && regx1.test(w))
+     { 
+        alert('valid');
+        return true;
+     }
+     else
+     {
+      id_name.style.border = 'solid 3px red';
+      document.getElementById('namelabel').style.visibility="visible";
+      alert('invalid');
+    return false
+    }
+    }
+
+</script>  -->
+  <form method="post" action="" enctype="multipart/form-data"  id="Update"> {% csrf_token%}
+    <label id='namelabel' style='visibility: hidden; color: darkred;'> invalid username </label>
+    {{form.as_p}}
+
+  </p><input type="submit" >
+</form>
+   <script>
+     var l = document.getElementById('id_address')
+    var y  = document.getElementById('preview_content')
+      console.log(l.innerHTML);
+    l.onkeyup = function(){
+        y.innerHTML = l.value;
+    }
+
+
+
+
+
+
+</script>
+<script src = '{% static "javascriptt/jquery-3.5.1.js" %}'></script>
+</body>
+</html>

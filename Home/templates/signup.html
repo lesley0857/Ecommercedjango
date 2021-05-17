@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>signup</title>
+</head>
+<body>
+<span id="uplineval">{{d}}</span>
+
+<form >
+  {{formo}}
+</form>
+
+
+ <form method="POST" action="">
+     {% csrf_token %}
+
+     {{form1.upline.label}}
+     {{form1.upline}}
+
+
+
+    {{ form.username.label}}
+    {{ form.username}}<br>
+
+     {{ form.email.label}}
+    {{ form.email}}<br>
+
+     {{ form.password1.label}}
+    {{ form.password1}}<br>
+
+     {{ form.password2.label}}
+    {{ form.password2}}<br>
+     <input type="submit" name="register account">
+ </form>
+ {% for message in messages%} <!-- we loop through messages so that all messages will be displayed -->
+  {{ message }}
+  {% endfor %}
+ <span> {{form.errors }}</span>
+<span> Already have an account? </span>
+<span> <a href="{% url 'Home:login' %}">log in </a></span>
+
+<!--<script type="text/javascript" src = "{% static '/javascriptt/java.js' %}"></script>
+-->
+</body>
+</html>
