@@ -11,6 +11,9 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+import django_heroku
+import dj-database-url-0.5.0
+from decouple import config
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -51,6 +54,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+     'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'Ecommerce.urls'
@@ -127,7 +131,8 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR,'static')
     ] #static folder 
 
-    
+STATICfILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticfilesStorage'
+
 MEDIA_ROOT = os.path.join(BASE_DIR,'static/images')
 MEDIA_URL = '/images/'
 
@@ -138,6 +143,8 @@ EMAIL_PORT =  587
 EMAIL_USE_TLS = 'True'
 EMAIL_HOST_USER = 'nwekelesley@gmail.com'
 EMAIL_HOST_PASSWORD = 'mummyanddaddy'
+
+django_heroku.settings(locals())
 
 '''
 AWS_ACCESS_KEYS_ID = ''
