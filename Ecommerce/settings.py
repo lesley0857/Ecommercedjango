@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 import django_heroku
-import dj-database-url-0.5.0
+import dj-database-url==0.5.0
 from decouple import config
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
