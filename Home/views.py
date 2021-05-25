@@ -29,7 +29,7 @@ stripe.api_key = "sk_test_51IDxR7A2PRoCz2JnGSo4ucTXSvY7LnzOvSxMfLOiwF02XRDY0qfHH
 @login_required(login_url='Home:login') # you are required to login to acess this page.. this would make sure that anybody who is not logged in cant access this page
 #@allowed_users(allowed_roles=['Admin'])
 #@admin_only
-@login_required(login_url='Home:login')
+
 def home_view(request):
 
     context = {}
@@ -171,7 +171,7 @@ def try_view(request):
     queryset =  Products.objects.all()
     paginate_by = 10
     template_name = 'Ecommerce-Template-Bootstrap-master/product-page.html'''
-@login_required(login_url='Home:login')
+
 def product_view(request):
     productlist = Products.objects.all()
 
