@@ -175,7 +175,7 @@ def try_view(request):
 def product_view(request):
     productlist = Products.objects.all()
 
-    i  = Order.objects.filter(customer=request.user.customer)
+
     checkk = request.GET.get('q')
     if checkk:
         productlist = productlist.filter(
@@ -186,7 +186,7 @@ def product_view(request):
     paginator = Paginator( Products.objects.all(),25)
     page_number = request.GET.get("page")
     page_obj = paginator.get_page(page_number)
-    context = {'i':i,'productlist':productlist,"page_obj":page_obj,'page_number':page_number}
+    context = {'productlist':productlist,"page_obj":page_obj,'page_number':page_number}
     return render(request,'Ecommerce-Template-Bootstrap-master/product-page.html',context)
 
 def product_detail_view(request,id):
