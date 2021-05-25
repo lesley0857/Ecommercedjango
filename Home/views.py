@@ -176,7 +176,7 @@ def product_view(request):
     productlist = Products.objects.all()
 
 
-    checkk = request.GET.get('q')
+   ''' checkk = request.GET.get('q')
     if checkk:
         productlist = productlist.filter(
             Q(title__icontains=checkk)|
@@ -185,8 +185,9 @@ def product_view(request):
         #.distinct to avoiid duplicating items
     paginator = Paginator( Products.objects.all(),25)
     page_number = request.GET.get("page")
-    page_obj = paginator.get_page(page_number)
-    context = {'productlist':productlist,"page_obj":page_obj,'page_number':page_number}
+    page_obj = paginator.get_page(page_number)'''
+
+    context = {'productlist':productlist}
     return render(request,'Ecommerce-Template-Bootstrap-master/product-page.html',context)
 
 def product_detail_view(request,id):
