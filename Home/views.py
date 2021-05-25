@@ -176,16 +176,6 @@ def product_view(request):
     productlist = Products.objects.all()
 
 
-   ''' checkk = request.GET.get('q')
-    if checkk:
-        productlist = productlist.filter(
-            Q(title__icontains=checkk)|
-            Q(description__icontains=checkk)
-        ).distinct()
-        #.distinct to avoiid duplicating items
-    paginator = Paginator( Products.objects.all(),25)
-    page_number = request.GET.get("page")
-    page_obj = paginator.get_page(page_number)'''
 
     context = {'productlist':productlist}
     return render(request,'Ecommerce-Template-Bootstrap-master/product-page.html',context)
@@ -194,6 +184,7 @@ def product_detail_view(request,id):
     product_detail = Products.objects.get(id = id)
     context = {'product_detail':product_detail}
     return render(request,"product_detail.html",context)
+
 def javascriptt_view(request):
     mapbox_access_token = 'pk.eyJ1IjoibGVzbGV5b2x5IiwiYSI6ImNraDJpMnVieTAyYW4yeG5sOWwwM3ptaDYifQ.Eo6ubILTMV3m22AsegcqoA'
     context = {'mapbox_access_token':mapbox_access_token}
